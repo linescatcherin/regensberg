@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Aemtlierfassung</title>
+</head>
+
+<body>
+
+<h1>Ämtlierfassung Semester</h1>
+
+<form>
+<table> 
+
+<h2>Neues Ämtli erfassen</h2>
+
+<tr> 
+<th>
+<h3>Modul</h3>
+<label><input id="modul" name="mod"></label> 
+</th>
+
+<th>
+<h3>Anzahl</h3>
+<select name="anzahl" size="1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</th>
+
+<th>
+<h3>Beschreibung gross</h3>
+<label><input id="besch_gross" name="gross"></label> 
+</th>
+
+<th>
+<h3>Beschreibung klein</h3>
+<label><input id="besch_klein" name="klein"></label> 
+</th>
+
+</tr>
+
+<tr>
+<th></th>
+<th>K</th>
+<th>G</th>
+<th>undefiniert</th>
+<th>MO</th>
+<th>DI</th>
+<th>MI</th>
+<th>DO</th>
+<th>FR</th>
+<th>TAG FREI</th>
+<th>START</th>
+<th>START FREI</th>
+<th>DAUER</th>
+<th>BESCHREIBUNG</th>
+</tr>
+
+<tr>
+<th>Name Ämtli</th> <!--DB-Abfrage-->
+<th>
+<label for="klein"><input type="radio" id="klein" name="Groesse" value="klein"></label>
+</th>
+<th>
+<label for="gross"><input type="radio" id="gross" name="Groesse" value="gross"></label>
+</th>
+<th>
+<label for="undef"><input type="radio" id="undef" name="Groesse" value="undefiniert"></label>
+</th>
+<th>
+<label for="montag"><input type="radio" id="montag" name="Wochentag" value="Montag"></label>
+</th>
+<th>
+<label for="dienstag"><input type="radio" id="dienstag" name="Wochentag" value="Dienstag"></label>
+</th>
+<th>
+<label for="mittwoch"><input type="radio" id="mittwoch" name="Wochentag" value="Mittwoch"></label>
+</th>
+<th>
+<label for="donnerstag"><input type="radio" id="donnerstag" name="Wochentag" value="Donnerstag"></label>
+</th>
+<th>
+<label for="freitag"><input type="radio" id="freitag" name="Wochentag" value="Freitag"></label>
+</th>
+<th>
+<label for="frei"><input type="radio" id="frei" name="Wochentag" value="Frei_waehlbar"></label>
+</th>
+<th>
+<label><input type="datetime" min="5" max="5" id="start" name="Start"></label> 
+</th>
+<th>
+<label for="datetime"><input type="radio" id="start" name="Start" value="Start_waehlbar"></label>
+</th>
+<th>
+<label><input id="dauer" name="Dauer"></label> 
+</th>
+<th>Beschreibung</th> <!--DB-Abfrage-->
+</tr>
+</table>
+
+<button type="submit">Hinzufügen</button>
+
+</form>
+
+<h2>Erfasste Ämtlis</h2>
+<!--DB-Abfrage Auflistung-->
+
+<button type="submit">Bearbeiten</button>
+<button type="submit">Löschen</button>
+
+
+
+
+</body>
+</html>
