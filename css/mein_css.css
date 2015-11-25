@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+		margin: 0;
+		padding: 0;
+		font-family: Avenir, Haettenschweiler, "Franklin Gothic", "Helvetica", sans-serif;
+		font-size: 14px;
+		background-color: #4c4c4c;
+	}
+	
+
+
+h2,h3, h4, h5, h6{ background:#81cffb;
+padding-left: 2vw;
+}
+
+h1{ background:rgb(253, 150, 107);
+color: #eee;
+padding-left: 2vw;
+
+}
+
+
+label{
+	padding-left: 2vw;
+	margin-bottom: 2vh;
+	margin-right: 5%;
+	display:inline-block;
+	color:#eee;
+	}
+
+input{
+	margin-right: 10%;
+	width:50vw;
+	font-size: 18px;
+	background:#eee;
+	
+}
+button{
+		margin-left: 2vw;
+		margin-top:2vh;
+		width:10vw;
+		height:4vh;
+		border:thin;
+		float: left;
+	
+	}
+	
+	.sub_change{
+		
+		background:#81cffb;
+		
+		}
+	
+	
+	.sub_delete{
+		background:rgb(253, 150, 107);
+		
+		}
+	
+
+	
