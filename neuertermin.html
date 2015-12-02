@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>Neuer Termin</title>
+	<link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/default.date.css">
+	<link rel="stylesheet" href="css/default.time.css">
+	<script src="js/jquery.1.7.0.js"></script>
+	<script src="js/picker.js"></script>
+	<script src="js/picker.date.js"></script>
+	<script src="js/picker.time.js"></script>
+	
+	<script src="js/legacy.js"></script>
+	
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 16px;
+		background-color: #4c4c4c;
+		height: 100vh;
+		overflow: hidden;
+		color: white;
+		text-align: center;
+	}
+	
+	.titelbereich{
+		margin-top: 2vh;
+		height: 20vh;
+		width: 96vw;
+		margin-left: 2vw;
+		margin-bottom: 0.5vh;	
+	}
+	
+	.titel{
+		padding-top: 10vh;
+		text-align: center;
+		color: white;
+		
+	}
+	
+	.felder{
+		height: 56vh;
+		width: 96vw;
+		margin-left: 2vw;
+		
+	}
+	
+	.bestaetigen{
+		height: 20vh;
+		margin-bottom: 2vh;
+		width: 96vw;
+		margin-left: 2vw;
+		
+	}
+	
+	.balken{
+		height: 9.5vh;
+		margin-bottom:0.5vh;
+		width: 96vw;
+		background-color: white;
+		clear:both;
+	}
+	
+	.balkenhalb{
+		height: 9.5vh;
+		margin-bottom:0.5vh;
+		width: 47.5vw;
+		background-color: white;
+		float: left;
+		
+	}
+	
+	.balkenblau{
+		height: 9.5vh;
+		background-color:#81cffb;
+		width: 96vw;
+		margin-top: 0.5vh;
+		float: left;
+	}
+	
+	.balkenrot{
+		height: 9.5vh;
+		margin-top: 0.5vh;
+		float: left;
+		background-color:#fd966b;
+		width: 96vw;
+	
+	}
+	
+	input{
+		width:100%;
+		height: 100%;
+		text-align: center;
+		color:#fd966b;
+		border: none;
+		padding: 0px;
+		border-width: 0px;
+		margin: 0 auto;
+	}
+	
+	input:focus{
+		outline: #fd966b solid 2px !important;
+	}
+	
+	.picker__day--outfocus{
+		display: none;
+
+	}
+	
+	.picker__list-item--disabled{
+		display: none;
+	}
+	
+		a{
+		text-decoration: none;
+		color: white;
+	}
+		</style>
+		
+		
+			
+</head>
+
+
+
+
+<body>
+	
+	<div class="titelbereich">
+		<p class="titel">NEUER TERMIN</p>
+	</div>
+	
+	<div class="felder">
+		<div class="balken">
+			<input type="text" placeholder="BEZEICHNUNG" name="bezeichnung" />
+		</div>
+		<div class="balken">
+        	<input id="input_01" class="datepicker" name="datum" type="text" placeholder="DATUM">
+            <div id="root-picker-outlet"></div>
+        </div>
+		<div class="balkenhalb">
+			<input type="text" class="timepicker" id="test1" placeholder="BEGINN" name="beginn"/>
+			<div id="root-picker-outlet2"></div>
+		</div>
+		<div class="balkenhalb" style="margin-left: 1vw;">
+			<input type="text" class="timepicker2"  placeholder="ENDE" name="ende"/>
+		</div>
+		<div class="balken">
+			<input type="text" placeholder="ORT" name="ort"/>
+		</div>
+	</div>
+	
+	<div class="bestaetigen">
+		<div class="balkenblau"><p id="testgang">GO</p></div>
+		<a href="javascript:history.back()"><div class="balkenrot"><p>ABBRECHEN</p></div></a>
+		
+	</div>
+	
+    <script type="text/javascript">
+        $('.datepicker').pickadate({
+            format: 'd mmmm, yyyy',
+			formatSubmit: 'yyyy-mm-dd',
+            
+            container: '#root-picker-outlet',
+            closeOnSelect: true,
+            closeOnClear: false,
+            monthsFull: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+			monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+			weekdaysFull: ['Sonntag', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+			weekdaysShort: ['So', 'Mo', 'Di', 'Mi', 'Don', 'Fr', 'Sa'],
+			firstDay: 1,
+			today: '',
+			clear: '',
+			close: '',
+			min: true,
+			
+        })
+        
+        $('.timepicker').pickatime({
+	        
+	        container: '#root-picker-outlet2',
+	        interval: 5,
+	        format: 'HH:i',
+	        formatSubmit:'HH:i',
+			formatLabel: '<b>HH</b>:i',
+			clear: '',
+	        hiddenName: true,
+	         disable: [
+			    { from: [0,0], to: [6,0]}
+			  ]
+        })    
+        
+        
+		$('.timepicker2').click(function() {
+		 
+		 	abfragebeginn = $("input[name=beginn]").val();
+		 	stundeabfrage= abfragebeginn.slice(0,2); 
+		 	minutenabfrage= abfragebeginn.slice(3,5);
+
+		 
+	        $('.timepicker2').pickatime({
+		        container: '#root-picker-outlet2',
+		        interval: 5,
+		        format: 'HH:i',
+		        formatSubmit:'HH:i',
+				formatLabel: '<b>HH</b>:i',
+				clear: '',
+		        hiddenName: true,
+		         disable: [
+				    { from: [0,0], to: [stundeabfrage,minutenabfrage]}
+				  ]
+	        })  
+		
+		});
+
+    </script>
+
+</body>
+
+
+
